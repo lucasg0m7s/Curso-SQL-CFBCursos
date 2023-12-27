@@ -124,9 +124,18 @@
     SubSelect, incremento para campo chave
     
 	insert into cliente values ((select max(c.i_cliente_cliente) + 1 from cliente c), 'Vespertino', '12345678999', '2021-06-03', 1);
-	select * from cliente;
     
+    Utilização da Cláusula FROM com tabelas temporárias
+    select * from (select i_cliente_cliente, s_nome_cliente from cliente) c;
+    
+    Utilização da Cláusula FROM com uma view
+    create view nomescli as 
+	select i_cliente_cliente, s_nome_cliente from cliente;
+
+	select * from nomescli;
 */
+
+
 
 
 
