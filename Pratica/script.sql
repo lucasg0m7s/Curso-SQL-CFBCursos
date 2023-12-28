@@ -153,7 +153,13 @@
 	where 
 		month(d_nasc_cliente) = month(curdate());
         
-     Chamando a view: select * from aniversariantesdomes;    
+     Chamando a view: select * from aniversariantesdomes;   
+     
+     Cláusula WHERE - Filtra a consulta
+     
+     Exemplos: select * from cliente where s_cpf_cliente = '00000000000' or s_cpf_cliente = '11111111111';
+			   select * from cliente where i_tipo_cliente in(2,3) and (month(d_nasc_cliente) >= 4 and month(d_nasc_cliente) <= 9);
+	 
 */
 
 
