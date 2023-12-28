@@ -133,7 +133,29 @@
 	select i_cliente_cliente, s_nome_cliente from cliente;
 
 	select * from nomescli;
+    
+    Views
+    
+    Uma view executa uma consulta pré definida, facilitando as consultas
+    
+    Criando uma view: create view cpfcliente as select i_cliente_cliente, s_cpf_cliente from cliente;
+    
+    Chamando a view: select * from cpfcliente;
+    
+    Criando uma view para aniversariantes do mês:
+    
+	create view aniversariantesDoMes as
+	select 
+		i_cliente_cliente, 
+		s_nome_cliente, 
+		day(d_nasc_cliente) as 'Dia Aniversário' 
+	from cliente 
+	where 
+		month(d_nasc_cliente) = month(curdate());
+        
+     Chamando a view: select * from aniversariantesdomes;    
 */
+
 
 
 
