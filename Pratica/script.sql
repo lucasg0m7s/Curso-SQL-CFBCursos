@@ -160,7 +160,32 @@
      Exemplos: select * from cliente where s_cpf_cliente = '00000000000' or s_cpf_cliente = '11111111111';
 			   select * from cliente where i_tipo_cliente in(2,3) and (month(d_nasc_cliente) >= 4 and month(d_nasc_cliente) <= 9);
 	 
+     Inner Join - Usado para vincular duas tabelas que se relacionam em uma consulta
+     
+     Exemplos:
+     select 
+		c.i_cliente_cliente, 
+		c.s_nome_cliente, 
+		c.s_cpf_cliente, 
+		c.d_nasc_cliente, 
+		tc.s_dsctipocliente_tipocliente
+	 from cliente c
+		inner join tipocliente tc on c.i_tipo_cliente = tc.i_tipocliente_tipocliente;
+        
+	select 
+		v.i_venda_venda,
+		c.s_nome_cliente as 'Nome do cliente',
+		c.s_cpf_cliente as 'CPF do cliente',
+		v.d_data_venda,
+		v.f_valor_venda,
+		tc.s_dsctipocliente_tipocliente as 'Tipo do cliente'
+	from venda v
+		inner join cliente c on v.i_cliente_cliente = c.i_cliente_cliente
+		inner join tipocliente tc on c.i_tipo_cliente = tc.i_tipocliente_tipocliente;
 */
+
+
+
 
 
 
