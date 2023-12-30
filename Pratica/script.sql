@@ -203,6 +203,20 @@
 		venda v
 	group by 
 		d_data_venda;
+        
+	Having - Filtra dados do Group By
+    
+    Exemplo
+    
+    select 
+		v.d_data_venda,
+		count(v.i_venda_venda) as 'Qtde vendas do dia' 
+	from 
+		venda v
+	group by 
+		v.d_data_venda
+	having
+		count(v.i_venda_venda) < 2;
 */
 
 
