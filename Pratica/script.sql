@@ -182,6 +182,27 @@
 	from venda v
 		inner join cliente c on v.i_cliente_cliente = c.i_cliente_cliente
 		inner join tipocliente tc on c.i_tipo_cliente = tc.i_tipocliente_tipocliente;
+        
+	GROUP BY - Faz agrupamentos de dados na consulta
+    
+    Exemplos
+	SELECT 
+		tc.s_dsctipocliente_tipocliente, 
+		count(c.i_cliente_cliente) as qtde 
+	FROM 
+		tipocliente tc 
+	inner join 
+		cliente c on tc.i_tipocliente_tipocliente = c.i_tipo_cliente 
+	GROUP BY 
+		tc.i_tipocliente_tipocliente;
+
+	select 
+		v.d_data_venda,
+		count(v.i_venda_venda) as 'Qtde vendas do dia' 
+	from 
+		venda v
+	group by 
+		d_data_venda;
 */
 
 
