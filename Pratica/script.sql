@@ -259,10 +259,25 @@
 	order by
 		1 desc 
 	;
+    
+    Is Null vs Is Not Null - Filtragem do que é nulo e o que não é no resultado das consultas
+    
+    INSERTS DE EXEMPLO:
+    
+    insert into cliente values (default, 'Valkisneide','11223344556',null,1);
+	insert into cliente values (default,'Alcinclésio','65544332211',null,2);
+	insert into cliente values (default,'Nestisgerson','74125896300',null,3);
+	insert into cliente values (default,'Mordonório','36925814799',null,1);
+	insert into cliente values (default,'Mordonório','36925814799',null,2);
+	insert into cliente values (default,'Salomildo','98765432147',null,3);
+    
+    Exemplos: 
+    Resultados não nulos
+    select * from cliente where d_nasc_cliente is not null;
+    
+    Resultados nulos
+    select * from cliente where d_nasc_cliente is null;
 */
-
-
-
 
 
 
