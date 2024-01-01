@@ -217,7 +217,50 @@
 		v.d_data_venda
 	having
 		count(v.i_venda_venda) < 2;
+        
+	Order By - Ordena os resultados de uma consulta
+    
+    Exemplos:
+    
+    1) Ordena pelos ultimos 3 digitos do CPF
+    select 
+	* 
+	from
+		cliente
+	order by
+		right(s_cpf_cliente, 3) 
+	;
+    
+    2) Ordena pelo nome do cliente, em ordem alfabética 
+    select 
+	* 
+	from
+		cliente
+	order by
+		s_nome_cliente
+	;
+    
+    3) Palavra 'DESC' inverte a ordem padrão (crescente) por decrescente
+    
+    select 
+	* 
+	from
+		cliente
+	order by
+		i_cliente_cliente desc
+	;
+    
+    4) É possível ordenar pela posição das colunas
+    
+    select 
+	* 
+	from
+		cliente
+	order by
+		1 desc 
+	;
 */
+
 
 
 
