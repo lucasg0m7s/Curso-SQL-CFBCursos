@@ -289,6 +289,20 @@
     
     Inverte a condição
 	select * from cliente where not i_tipo_cliente = 1;
+    
+    TOP vs LIMIT - Limita a quantidade de registros retornados na consulta
+    
+    SQL SERVER - Usa o TOP
+    select top 5 * from cliente;
+    
+    MySQL - Retorna os primeiros 5 registros
+    select * from cliente LIMIT 5;
+    
+    Exemplo: 
+    select c.s_nome_cliente, v.i_venda_venda, v.d_data_venda, v.f_valor_venda
+	from venda v
+	inner join cliente c on c.i_cliente_cliente = v.i_cliente_cliente
+	order by f_valor_venda desc limit 3;
 */
 
 
