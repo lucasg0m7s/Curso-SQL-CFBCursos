@@ -277,6 +277,18 @@
     
     Resultados nulos
     select * from cliente where d_nasc_cliente is null;
+    
+    Operadores AND, OR e NOT
+    
+    Exemplos:
+    As duas condições precisam retornar verdadeiro
+    select * from cliente where d_nasc_cliente is not null and i_tipo_cliente = 1;
+    
+    Apenas uma condição precisa retornar verdadeiro
+    select * from cliente where d_nasc_cliente is null or i_tipo_cliente = 1;
+    
+    Inverte a condição
+	select * from cliente where not i_tipo_cliente = 1;
 */
 
 
