@@ -342,7 +342,36 @@
         round(sum(f_valor_venda), 2) as "Valor médio das vendas"
 	from 
 		venda;
+        
+	Operador LIKE - Específica consultas
+    
+    Coringas
+    % - Qualquer caractere antes ou depois
+    _ - Quantidade de caracteres antes ou depois
+    
+    Exemplos %
+    
+    Começa com a letra B
+    select * from cliente where s_nome_cliente like ('b%')
+    
+    Termina com a letra B
+    select * from cliente where s_nome_cliente like ('%b')
+    
+    Contém a letra B
+    select * from cliente where s_nome_cliente like ('%b%')
+    
+    Contém com a letra B e termina com O
+    select * from cliente where s_nome_cliente like ('b%o')
+    Exemplos _
+    
+    Começa com B e contém apenas mais 2 caracteres
+    select * from cliente where s_nome_cliente like ('b__')
+    
+    Contém 8 caracteres
+    select * from cliente where s_nome_cliente like ('________')
 */
+
+select * from cliente where s_nome_cliente like ('________')
 
 
 
