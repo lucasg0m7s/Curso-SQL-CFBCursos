@@ -362,6 +362,7 @@
     
     Contém com a letra B e termina com O
     select * from cliente where s_nome_cliente like ('b%o')
+    
     Exemplos _
     
     Começa com B e contém apenas mais 2 caracteres
@@ -369,9 +370,24 @@
     
     Contém 8 caracteres
     select * from cliente where s_nome_cliente like ('________')
+    
+    Operador IN 
+    Permite que especifique vários valores em uma cláusula WHERE. 
+    Serve como uma abreviação para várias condições OR.
+	
+    Podemos substituir isso
+	select * from cliente where right(s_cpf_cliente, 1) = 0 or right(s_cpf_cliente, 1) = 1 or right(s_cpf_cliente, 1) = 2;
+	
+    Por isso
+    select * from cliente where right(s_cpf_cliente, 1) in (0, 1, 2);
+    
+    Outro exemplo com subconsulta
+    select * from cliente
+    where d_nasc_cliente in (select d_nasc_cliente from cliente where d_nasc_cliente > '2000-01-01' and d_nasc_cliente < '2010-01-01') ;
 */
 
-select * from cliente where s_nome_cliente like ('________')
+
+
 
 
 
