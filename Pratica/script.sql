@@ -431,9 +431,20 @@
 		cliente c 
 	right join venda v 
 			on c.i_cliente_cliente = v.i_cliente_cliente;
+	----------------------------------------------------------------------
+    
+	Ligando uma tabela a ela mesma (Self Join)
+    
+    select 
+		* 
+	from 
+		cliente c1, cliente c2
+	where
+		c1.i_tipo_cliente = c2.i_tipo_cliente and c1.s_nome_cliente = 'Bruno'
+	order by c1.i_tipo_cliente
+	;
 
 */
-
 
 
 
