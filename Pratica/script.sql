@@ -400,6 +400,38 @@
 		(d_data_venda between '2020-07-01' and '2020-10-15') and 
 		i_cliente_cliente not in (3, 10) and
 		f_valor_venda > 20;
+        
+	Tipos de JOIN do SQL
+    
+    Inner Join - Retorna o que é comum entre as duas tabelas
+    
+    select 
+		c.i_cliente_cliente, c.s_nome_cliente 
+	from 
+		cliente c 
+	inner join venda v 
+			on c.i_cliente_cliente = v.i_cliente_cliente;
+	----------------------------------------------------------------------
+    
+    Left Join - Retorna todos os registros da tabela da esquerda (principal) + as correspondencias da tabela da direita
+	
+    select 
+		c.i_cliente_cliente, c.s_nome_cliente, v.i_venda_venda
+	from 
+		cliente c 
+	left join venda v 
+			on c.i_cliente_cliente = v.i_cliente_cliente;
+	----------------------------------------------------------------------
+    
+	Right Join - Retorna todos os registros da tabela da direita + as correspondencias da tabela da esquerda
+
+	select 
+		c.i_cliente_cliente, c.s_nome_cliente, v.i_venda_venda
+	from 
+		cliente c 
+	right join venda v 
+			on c.i_cliente_cliente = v.i_cliente_cliente;
+
 */
 
 
