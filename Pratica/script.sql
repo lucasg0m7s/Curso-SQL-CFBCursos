@@ -661,8 +661,35 @@
 
 	call somaVendas(@ret);
 	select round(@ret,2);
-*/
+    ------------------------------------------------------------------
+    
+    Conheça algumas funções de SQL
+    
+	# LOCATE = pesquisa um conteúdo X em uma string e retorna posição
+	select s_nome_cliente from cliente where i_cliente_cliente=1;
+	select LOCATE('e', s_nome_cliente), s_nome_cliente from cliente where i_cliente_cliente=1;
 
+	#UPPER = converte a string para maiúsculo
+	select UPPER(s_nome_cliente) from cliente where i_cliente_cliente=1;
+
+	#LOWER = converte a string para minúsculo
+	select LOWER(s_nome_cliente) from cliente where i_cliente_cliente=1;
+
+	#SUBSTR = extrai parte de uma string (str, posINI, qtde)
+	select SUBSTR(s_nome_cliente, 2, 3), s_nome_cliente from cliente where i_cliente_cliente=1;
+
+	#CONCAT = concatena duas strings
+	select CONCAT('Nome: ', s_nome_cliente, ' filhotico') from cliente where i_cliente_cliente=1;
+
+	#FORMAT = formata um numeral para o padrão #,###,###,## com a qtde de casas decimais informada
+	select *, FORMAT(f_valor_venda, 2) from venda;
+
+	#ASCII = retorna o valor ASCII do primeiro caractere da string
+	select ASCII(s_nome_cliente) from cliente where i_cliente_cliente=1;
+
+	#CHAR_LENGTH = retorna o tamanho da string
+	select CHAR_LENGTH(s_nome_cliente), s_nome_cliente from cliente where i_cliente_cliente=1;
+*/
 
 
 
