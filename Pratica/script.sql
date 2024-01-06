@@ -635,7 +635,32 @@
 	select @ret;
     ------------------------------------------------------------------------
     
+    Como usar CURSOR em Stored Procedures
     
+    Exemplo:
+    
+    Delimiter $$
+	create procedure somaVendas(out soma float(10, 2))
+	begin
+		Declare vv float(10,2) default 0;
+		declare fimLoop int default 0;
+		
+		declare meuCursor cursor for select f_valor_venda from venda;
+		Declare continue handler for not found set fimloop = 1;
+		
+		set soma = 0;
+		
+		open meuCursor;
+		while(fimLoop != 1)do
+			fetch meuCursor into vv;
+			set soma = soma + vv;
+		end while;
+
+	end $$
+	Delimiter ;
+
+	call somaVendas(@ret);
+	select round(@ret,2);
 */
 
 
