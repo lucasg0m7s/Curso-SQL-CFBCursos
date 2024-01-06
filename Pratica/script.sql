@@ -515,22 +515,40 @@
 	CASE..WHEN - Trata consultas
     
     Exemplos: 
+	select
+		i_cliente_cliente,
+		s_nome_cliente,
+		s_cpf_cliente,
+		case
+			when d_nasc_cliente is null then now()
+			else d_nasc_cliente
+		end as 'd_nasc_cliente',
+		i_tipo_cliente,
+		case
+			when (datediff(now(), d_nasc_cliente)/365) > 18 then 'Maior'
+			else 'Menor'
+		end 'Situação'
+	from cliente;
+    
+    funções IFNULL, ISNULL e NVL - Retorna um valor caso seja nulo
+    
+    MySQL - IFNULL ou COALESCE
+    SqlServer - ISNULL
+    ORACLE - NVL
+    
+    SINTAXE = IFNULL(COLUNA, 0)
+    
+    Atualizar para null
+    update produtovenda set i_qtde_produtovenda = null where i_produtovenda_produtovenda = 1;
+    
+    Exemplos:
+    
+    SELECT 
+	*, 
+    round((f_precoun_produtovenda * ifnull(i_qtde_produtovenda, 0)),2) as 'Total'
+	FROM PRODUTOVENDA;
+    
 */
-
-select
-	i_cliente_cliente,
-    s_nome_cliente,
-    s_cpf_cliente,
-    case
-		when d_nasc_cliente is null then now()
-        else d_nasc_cliente
-    end as 'd_nasc_cliente',
-    i_tipo_cliente,
-    case
-		when (datediff(now(), d_nasc_cliente)/365) > 18 then 'Maior'
-        else 'Menor'
-	end 'Situação'
-from cliente;
 
 
 
