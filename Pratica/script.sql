@@ -511,13 +511,26 @@
     Exemplo:
     Retorna true se a consulta dentro de exists retornar verdadeiro e então executa a consulta que chamou o metodo
     select * from cliente c where exists(select * from venda v where v.i_cliente_cliente = c.i_cliente_cliente)
+
+	CASE..WHEN - Trata consultas
+    
+    Exemplos: 
 */
 
-
-
-
-
-
+select
+	i_cliente_cliente,
+    s_nome_cliente,
+    s_cpf_cliente,
+    case
+		when d_nasc_cliente is null then now()
+        else d_nasc_cliente
+    end as 'd_nasc_cliente',
+    i_tipo_cliente,
+    case
+		when (datediff(now(), d_nasc_cliente)/365) > 18 then 'Maior'
+        else 'Menor'
+	end 'Situação'
+from cliente;
 
 
 
