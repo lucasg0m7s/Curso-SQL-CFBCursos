@@ -689,6 +689,8 @@
 
 	#CHAR_LENGTH = retorna o tamanho da string
 	select CHAR_LENGTH(s_nome_cliente), s_nome_cliente from cliente where i_cliente_cliente=1;
+    
+    Curso finalizado
 */
 
 
