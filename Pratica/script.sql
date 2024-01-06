@@ -593,12 +593,50 @@
 	select @idadeCliente, @resultado;
 	---------------------------------------------------------------------------------------
     
+    Como criar Loops em Stored Procedures
+    
+    While
+    
+    Delimiter $$
+	create procedure loopWhile(in max int, out soma int)
+	begin
+		Declare x int default 0;
+		
+		while(x < max)do
+			set x = x + 1;
+		end while;
+		
+		set soma = x;
+	end $$
+	Delimiter ;
+
+	call loopWhile(100,@ret);
+	select @ret;
+    
+    Loop
+    
+    Delimiter $$
+	create procedure loopLoop(in max int, out soma int)
+	begin
+		Declare x int default 0;
+		
+		meuloop:LOOP
+			if(x >= max)then
+				leave meuloop;
+			end if;
+			set x = x + 1;
+		end loop;
+		
+		set soma = x;
+	end $$
+	Delimiter ;
+
+	call loopLoop(100,@ret);
+	select @ret;
+    ------------------------------------------------------------------------
+    
     
 */
-
-
-
-
 
 
 
