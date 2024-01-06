@@ -547,8 +547,9 @@
 	*, 
     round((f_precoun_produtovenda * ifnull(i_qtde_produtovenda, 0)),2) as 'Total'
 	FROM PRODUTOVENDA;
+    ----------------------------------------------------------------------------------------
     
-    Stored Procedures #Parte1
+    Stored Procedures 
     Stored Procedures são métodos ou funções que podem ser chamadas 
     em qualquer momento do codigo depois de serem declaradas
     
@@ -566,10 +567,34 @@
     Chamando procedure
     
     call canal(2);
+    ----------------------------------------------------------------------------
+    
+    Como usar parâmetros de entrada, saída e o comando IF em Stored Procedures
+    
+    Exemplo:
+    
+    Delimiter $$
+	create procedure idade(in idCliente int, OUT idade int, out res varchar(20))
+	begin
+		Declare dt datetime;
+		SET dt = (select d_nasc_cliente from cliente where i_cliente_cliente = idCliente);
+		set idade = year(now()) - year(dt);
+		
+		if(idade >= 18)then
+			set res = 'Maior';
+		else
+			set res = 'Menor';
+		end if;
+		
+	end $$
+	Delimiter ;
+
+	call idade(11, @idadeCliente, @resultado);
+	select @idadeCliente, @resultado;
+	---------------------------------------------------------------------------------------
+    
+    
 */
-
-
-
 
 
 
