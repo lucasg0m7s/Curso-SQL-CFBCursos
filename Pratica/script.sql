@@ -548,7 +548,28 @@
     round((f_precoun_produtovenda * ifnull(i_qtde_produtovenda, 0)),2) as 'Total'
 	FROM PRODUTOVENDA;
     
+    Stored Procedures #Parte1
+    Stored Procedures são métodos ou funções que podem ser chamadas 
+    em qualquer momento do codigo depois de serem declaradas
+    
+    Criando procedure
+    
+    Delimiter $$ 
+	create procedure canal(in curso INT)
+	begin
+		declare x varchar(50);
+		set x = 'youtube.com/cfbcursos';
+		select x, curso;
+	end $$
+	Delimiter ;
+    
+    Chamando procedure
+    
+    call canal(2);
 */
+
+
+
 
 
 
